@@ -15,6 +15,7 @@
 // // limitations under the License.
 
 using System;
+using DynamicDns.Core;
 
 namespace DynamicDns.TencentCloud.Models
 {

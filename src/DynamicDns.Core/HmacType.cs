@@ -15,7 +15,7 @@
 // // limitations under the License.
 
 
-namespace DynamicDns.TencentCloud
+namespace DynamicDns.Core
 {
     public enum HmacType
     {
