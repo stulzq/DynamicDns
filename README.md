@@ -1,5 +1,7 @@
 # DynamicDns
 
+腾讯云云解析客户端
+
 ## 说明
 
 运行Sample和单元测试需要配置SecretId和SecretKey到用户变量，或者自行在代码中配置
