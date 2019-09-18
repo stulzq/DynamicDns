@@ -21,6 +21,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using DynamicDns.Core;
+using DynamicDns.Core.Encrypt;
 using DynamicDns.TencentCloud.Models;
 using Flurl.Http;
 using Flurl.Http.Configuration;
@@ -28,7 +29,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 
-namespace DynamicDns.TencentCloud
+namespace DynamicDns.TencentCloud.Http
 {
     public static class RequestFactory
     {
@@ -161,14 +162,5 @@ namespace DynamicDns.TencentCloud
             }
         }
 
-        public static void Configure(TencentCloudOptions options)
-        {
-            AppConsts.SecretId = options.SecretId;
-            AppConsts.SecretKey = options.SecretKey;
-            AppConsts.SignatureMethod = options.SignatureMethod;
-            AppConsts.DefaultRequestMethod = options.DefaultRequestMethod;
-
-            FlurlHttp.Configure(settings => settings.Timeout = TimeSpan.FromMilliseconds(options.RequestTimeout));
-        }
     }
 }

@@ -16,6 +16,7 @@
 
 using System;
 using DynamicDns.Core;
+using DynamicDns.Core.Encrypt;
 
 namespace DynamicDns.TencentCloud.Models
 {

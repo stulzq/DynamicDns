@@ -1,4 +1,4 @@
-﻿namespace DynamicDns.TencentCloud
+﻿namespace DynamicDns.TencentCloud.Http
 {
     public enum RequestMethod
     {

@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using DynamicDns.TencentCloud.Http;
 using DynamicDns.TencentCloud.Models;
 using Flurl.Http;
 using Xunit;
@@ -12,7 +13,7 @@ namespace DynamicDns.TencentCloud.UnitTests
         public async Task GetData_ShouldBeOk()
         {
             var getUrl = RequestFactory.CreateGet(new DomainListRequestModel());
-            Assert.True(ResponseUtil.Validate(await getUrl.GetStringAsync()));
+            Assert.True(!ResponseUtil.Validate(await getUrl.GetStringAsync()).Error);
         }
 
         [Fact(DisplayName = "POST请求")]
@@ -22,7 +23,7 @@ namespace DynamicDns.TencentCloud.UnitTests
             var resp =  await $"{AppConsts.Protocol}://{AppConsts.Gateway}".PostUrlEncodedAsync(postData);
             resp.EnsureSuccessStatusCode();
             var result = await resp.Content.ReadAsStringAsync();
-            Assert.True(ResponseUtil.Validate(result));
+            Assert.True(!ResponseUtil.Validate(result).Error);
         }
     }
 }

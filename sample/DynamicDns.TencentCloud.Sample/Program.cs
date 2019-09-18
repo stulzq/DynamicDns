@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Web;
 using DynamicDns.Core;
-using DynamicDns.TencentCloud.Models;
-using Flurl.Http;
-using TencentCloud.Common;
+using DynamicDns.TencentCloud.Http;
 
 namespace DynamicDns.TencentCloud.Sample
 {
@@ -13,20 +9,17 @@ namespace DynamicDns.TencentCloud.Sample
     {
         static async Task Main(string[] args)
         {
-
-            RequestFactory.Configure(new TencentCloudOptions()
+            IDynamicDns ddns = new TencentCloudDynamicDns(new TencentCloudOptions()
             {
                 DefaultRequestMethod = RequestMethod.POST,
-                SecretId = Environment.GetEnvironmentVariable("TENCENT_CLOUD_SECRETID",EnvironmentVariableTarget.User),
+                SecretId = Environment.GetEnvironmentVariable("TENCENT_CLOUD_SECRETID", EnvironmentVariableTarget.User),
                 SecretKey = Environment.GetEnvironmentVariable("TENCENT_CLOUD_SECRETKEY",EnvironmentVariableTarget.User)
             });
 
-            Console.WriteLine(await RequestFactory.Request(new DomainListRequestModel()));
-            Console.WriteLine(await RequestFactory.Request(new RecordListRequestModel("xcmaster.com")));
+            var res = await ddns.AddOrUpdateAsync("xcmaster.com", "test111", "TXT", "abc");
+            Console.WriteLine($"Success: {!res.Error}");
+            Console.WriteLine($"Message: {res.Message ?? ""}");
 
-            Console.WriteLine(await DomainRecordUtil.AddOrUpdateAsync(new CreateRecordRequestModel("xcmaster.com", "test111", "TXT",
-                "abc")));
         }
-
     }
 }

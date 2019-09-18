@@ -1,6 +1,8 @@
-﻿namespace DynamicDns.TencentCloud.Models
+﻿
+
+namespace DynamicDns.TencentCloud.Models
 {
-    public class CreateRecordRequestModel:IRequestModel
+    public class CreateRecordRequestModel: IRequestModel
     {
         /// <summary>
         /// 

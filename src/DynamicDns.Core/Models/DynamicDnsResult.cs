@@ -14,20 +14,23 @@
 // // See the License for the specific language governing permissions and
 // // limitations under the License.
 
-using DynamicDns.Core;
-using DynamicDns.Core.Encrypt;
-using DynamicDns.TencentCloud.Http;
-
-namespace DynamicDns.TencentCloud
+namespace DynamicDns.Core.Models
 {
-    public class AppConsts
+    public class DynamicDnsResult
     {
-        public const string Gateway = "cns.api.qcloud.com/v2/index.php";
-        public const string Protocol = "https";
+        public DynamicDnsResult(bool error, string message)
+        {
+            Error = error;
+            Message = message;
+        }
 
-        public static string SecretId { get; set; }
-        public static string SecretKey { get; set; }
-        public static HmacType SignatureMethod { get; set; }=HmacType.HmacSHA256;
-        public static RequestMethod DefaultRequestMethod { get; set; } = RequestMethod.GET;
+        public DynamicDnsResult(bool error)
+        {
+            Error = error;
+        }
+
+        public bool Error { get; }
+
+        public string Message { get; }
     }
 }

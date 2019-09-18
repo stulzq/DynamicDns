@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using DynamicDns.TencentCloud.Http;
 using DynamicDns.TencentCloud.Models;
 using Xunit;
 using Xunit.Abstractions;
@@ -20,7 +21,7 @@ namespace DynamicDns.TencentCloud.UnitTests
         public async Task GetDomainList_ShouldBeOk()
         {
             var resp = await RequestFactory.Request(new DomainListRequestModel());
-            Assert.True(ResponseUtil.Validate(resp));
+            Assert.True(!ResponseUtil.Validate(resp).Error);
         }
 
     }

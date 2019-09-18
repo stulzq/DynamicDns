@@ -15,7 +15,7 @@
 // // limitations under the License.
 
 
-namespace DynamicDns.Core
+namespace DynamicDns.Core.Encrypt
 {
     public enum HmacType
     {

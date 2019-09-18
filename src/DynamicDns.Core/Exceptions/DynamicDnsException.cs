@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DynamicDns.Core
+namespace DynamicDns.Core.Exceptions
 {
     public class DynamicDnsException:Exception
     {

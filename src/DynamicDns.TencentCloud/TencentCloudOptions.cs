@@ -1,4 +1,6 @@
 ﻿using DynamicDns.Core;
+using DynamicDns.Core.Encrypt;
+using DynamicDns.TencentCloud.Http;
 
 namespace DynamicDns.TencentCloud
 {

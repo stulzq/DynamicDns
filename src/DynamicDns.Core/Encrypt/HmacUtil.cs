@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace DynamicDns.Core
+namespace DynamicDns.Core.Encrypt
 {
     /// <summary>
     /// HAMC 算法帮助类 Hash-based Message Authentication Code
