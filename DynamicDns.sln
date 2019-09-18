@@ -9,9 +9,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{04972D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F529F45E-F185-4AAF-B720-9A0F8C439353}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicDns.Core", "src\DynamicDns.Core\DynamicDns.Core.csproj", "{E27FE35A-3076-4C97-BBA8-105C34607049}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicDns.Core", "src\DynamicDns.Core\DynamicDns.Core.csproj", "{E27FE35A-3076-4C97-BBA8-105C34607049}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicDns.TencentCloud", "src\DynamicDns.TencentCloud\DynamicDns.TencentCloud.csproj", "{6EA37F67-FAF2-417B-9AE7-257B1CCB34BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicDns.TencentCloud", "src\DynamicDns.TencentCloud\DynamicDns.TencentCloud.csproj", "{6EA37F67-FAF2-417B-9AE7-257B1CCB34BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{27E5EBD2-DAB4-486D-A590-F7732B942471}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicDns.TencentCloud.UnitTests", "tests\DynamicDns.TencentCloud.UnitTests\DynamicDns.TencentCloud.UnitTests.csproj", "{A8625CDD-47B7-41C5-86A6-FA6A3ED3AF4B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solutions Items", "Solutions Items", "{270B9E54-186F-453E-8703-9273F6B7FF31}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +41,10 @@ Global
 		{6EA37F67-FAF2-417B-9AE7-257B1CCB34BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EA37F67-FAF2-417B-9AE7-257B1CCB34BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EA37F67-FAF2-417B-9AE7-257B1CCB34BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8625CDD-47B7-41C5-86A6-FA6A3ED3AF4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8625CDD-47B7-41C5-86A6-FA6A3ED3AF4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8625CDD-47B7-41C5-86A6-FA6A3ED3AF4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8625CDD-47B7-41C5-86A6-FA6A3ED3AF4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +53,7 @@ Global
 		{F0D66968-13EF-457F-82E6-80BA34C5869C} = {04972DE0-EBD1-449F-B2D3-6F4715EBA9F8}
 		{E27FE35A-3076-4C97-BBA8-105C34607049} = {F529F45E-F185-4AAF-B720-9A0F8C439353}
 		{6EA37F67-FAF2-417B-9AE7-257B1CCB34BA} = {F529F45E-F185-4AAF-B720-9A0F8C439353}
+		{A8625CDD-47B7-41C5-86A6-FA6A3ED3AF4B} = {27E5EBD2-DAB4-486D-A590-F7732B942471}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8CE670F-D544-459C-A5D3-8448092F7613}

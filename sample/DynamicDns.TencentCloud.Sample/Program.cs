@@ -12,11 +12,14 @@ namespace DynamicDns.TencentCloud.Sample
     {
         static async Task Main(string[] args)
         {
-            AppConsts.SecretId = "";
-            AppConsts.SecretKey = "";
+            RequestFactory.Configure(new TencentCloudOptions()
+            {
+                DefaultRequestMethod = RequestMethod.POST,
+                SecretId = Environment.GetEnvironmentVariable("TENCENT_CLOUD_SECRETID",EnvironmentVariableTarget.User),
+                SecretKey = Environment.GetEnvironmentVariable("TENCENT_CLOUD_SECRETKEY",EnvironmentVariableTarget.User)
+            });
 
-            Console.WriteLine(await RequestFactory.Create(new DomainListRequestModel()).GetStringAsync());
-            Console.WriteLine(await RequestFactory.Create(new RecordListRequestModel("baidu.com")).GetStringAsync());
+            Console.WriteLine(await RequestFactory.Request(new DomainListRequestModel()));
         }
 
     }
