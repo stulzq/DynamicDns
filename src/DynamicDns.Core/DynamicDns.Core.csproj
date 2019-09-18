@@ -9,10 +9,11 @@
     <RepositoryUrl>https://github.com/stulzq/DynamicDns.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>DynamicDns</PackageTags>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard2.2\DynamicDns.Core.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\netstandard2.0\DynamicDns.Core.xml</DocumentationFile>
     <NoWarn>1701;1702;CS1591</NoWarn>
   </PropertyGroup>
 

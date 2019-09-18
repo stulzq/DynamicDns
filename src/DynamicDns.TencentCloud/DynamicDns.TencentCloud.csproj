@@ -9,12 +9,17 @@
     <RepositoryType>gut</RepositoryType>
     <PackageTags>DynamicDns,TencentCloud</PackageTags>
     <Description>腾讯云 云解析客户端</Description>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Flurl.Http" Version="2.4.2" />
   </ItemGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard2.0\DynamicDns.TencentCloud.xml</DocumentationFile>
+    <NoWarn>1701;1702;CS1591</NoWarn>
+  </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DynamicDns.Core\DynamicDns.Core.csproj" />
