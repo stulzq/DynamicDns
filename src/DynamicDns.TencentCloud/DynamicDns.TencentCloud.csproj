@@ -2,14 +2,29 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>stulzq</Authors>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/stulzq/DynamicDns</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/stulzq/DynamicDns.git</RepositoryUrl>
+    <RepositoryType>gut</RepositoryType>
+    <PackageTags>DynamicDns,TencentCloud</PackageTags>
+    <Description>腾讯云 云解析客户端</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Flurl.Http" Version="2.4.2" />
   </ItemGroup>
 
+
   <ItemGroup>
     <ProjectReference Include="..\DynamicDns.Core\DynamicDns.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
