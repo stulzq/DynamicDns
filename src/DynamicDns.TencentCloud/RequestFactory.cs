@@ -17,6 +17,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using DynamicDns.Core;
@@ -24,6 +25,8 @@ using DynamicDns.TencentCloud.Models;
 using Flurl.Http;
 using Flurl.Http.Configuration;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 
 namespace DynamicDns.TencentCloud
 {
@@ -46,17 +49,22 @@ namespace DynamicDns.TencentCloud
                 $"Action={dataModel.Action}&Nonce={new Random(DateTime.Now.Millisecond).Next(10000, 99999)}&SecretId={AppConsts.SecretId}&SignatureMethod={AppConsts.SignatureMethod.ToString()}&Timestamp={DateTimeOffset.Now.ToUnixTimeSeconds()}";
             var data = $"{AppConsts.Gateway}?{originData}";
 
-            var serializeData = Serializer.Serialize(dataModel).ToLower();
-            var tempArray = serializeData.Split(new[] { "&" }, StringSplitOptions.RemoveEmptyEntries);
+            var serializeData = JsonConvert.SerializeObject(dataModel,new JsonSerializerSettings(){ContractResolver = new CamelCasePropertyNamesContractResolver()});
+            var json = JObject.Parse(serializeData);
             var dic = new SortedDictionary<string, string>();
-            foreach (var item in tempArray)
+            foreach (var item in json)
             {
-                var tmpAry = item.Split(new[] { "=" }, StringSplitOptions.RemoveEmptyEntries);
-                dic.Add(tmpAry[0], HttpUtility.UrlEncode(tmpAry[1]));
+                dic.Add(item.Key, item.Value.Value<string>());
             }
 
             dic.Remove("action");
-            serializeData = Serializer.Serialize(dic);
+            StringBuilder sb=new StringBuilder();
+            foreach (var dicKey in dic.Keys)
+            {
+                sb.Append($"{dicKey}={dic[dicKey]}&");
+            }
+            serializeData = sb.ToString().TrimEnd(new[] {'&'});
+
             if (!string.IsNullOrEmpty(serializeData))
             {
                 data = $"{data}&{serializeData}";
@@ -79,21 +87,22 @@ namespace DynamicDns.TencentCloud
             }
             var data = $"{AppConsts.Gateway}?Action={dataModel.Action}&Nonce={new Random(DateTime.Now.Millisecond).Next(10000, 99999)}&SecretId={AppConsts.SecretId}&SignatureMethod={AppConsts.SignatureMethod.ToString()}&Timestamp={DateTimeOffset.Now.ToUnixTimeSeconds()}";
 
-            var serializeData = Serializer.Serialize(dataModel).ToLower();
-            var tempArray = serializeData.Split(new[] { "&" }, StringSplitOptions.RemoveEmptyEntries);
+            var serializeData = JsonConvert.SerializeObject(dataModel, new JsonSerializerSettings() { ContractResolver = new CamelCasePropertyNamesContractResolver() });
+            var json = JObject.Parse(serializeData);
             var dic = new SortedDictionary<string, string>();
-            foreach (var item in tempArray)
+            foreach (var item in json)
             {
-                var tmpAry = item.Split(new[] { "=" }, StringSplitOptions.RemoveEmptyEntries);
-                dic.Add(tmpAry[0], HttpUtility.UrlEncode(tmpAry[1]));
+                dic.Add(item.Key, item.Value.Value<string>());
             }
 
             dic.Remove("action");
-            serializeData = Serializer.Serialize(dic);
-            if (!string.IsNullOrEmpty(serializeData))
+            StringBuilder sb = new StringBuilder();
+            foreach (var dicKey in dic.Keys)
             {
-                data = $"{data}&{serializeData}";
+                sb.Append($"{dicKey}={dic[dicKey]}&");
             }
+            serializeData = sb.ToString().TrimEnd(new[] { '&' });
+            data = $"{data}&{serializeData}";
             var encryptData = $"GET{data}";
             var signature = AppConsts.SignatureMethod == HmacType.HmacSHA1
                 ? HmacUtil.EncryptWithSHA1(encryptData, AppConsts.SecretKey)

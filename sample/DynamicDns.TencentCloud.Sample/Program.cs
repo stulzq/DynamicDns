@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 using DynamicDns.Core;
@@ -12,6 +13,7 @@ namespace DynamicDns.TencentCloud.Sample
     {
         static async Task Main(string[] args)
         {
+
             RequestFactory.Configure(new TencentCloudOptions()
             {
                 DefaultRequestMethod = RequestMethod.POST,
@@ -20,6 +22,10 @@ namespace DynamicDns.TencentCloud.Sample
             });
 
             Console.WriteLine(await RequestFactory.Request(new DomainListRequestModel()));
+            Console.WriteLine(await RequestFactory.Request(new RecordListRequestModel("xcmaster.com")));
+
+            Console.WriteLine(await DomainRecordUtil.AddOrUpdateAsync(new CreateRecordRequestModel("xcmaster.com", "test111", "TXT",
+                "abc")));
         }
 
     }
