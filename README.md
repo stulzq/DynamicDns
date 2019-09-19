@@ -33,7 +33,7 @@ IDynamicDns ddns = new TencentCloudDynamicDns(new TencentCloudOptions()
 //添加记录
 ddns.AddAsync
 
-//添加或删除记录
+//添加或更新记录
 ddns.AddOrUpdateAsync
 
 //删除记录
