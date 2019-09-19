@@ -1,23 +1,23 @@
 # DynamicDns
 
-ÔÆ½âÎö¿Í»§¶Ë£¬Ö§³ÖÈçÏÂÔÆ³§ÉÌ£º
+äº‘è§£æå®¢æˆ·ç«¯ï¼Œæ”¯æŒå¦‚ä¸‹äº‘å‚å•†ï¼š
 
-- ÌÚÑ¶ÔÆ
+- è…¾è®¯äº‘
 
-## 1.ËµÃ÷
+## 1.è¯´æ˜
 
-### 1.1ÌÚÑ¶ÔÆ
+### 1.1è…¾è®¯äº‘
 
-ÔËĞĞSampleºÍµ¥Ôª²âÊÔĞèÒªÅäÖÃSecretIdºÍSecretKeyµ½ÓÃ»§±äÁ¿£¬»òÕß×ÔĞĞÔÚ´úÂëÖĞÅäÖÃ
+è¿è¡ŒSampleå’Œå•å…ƒæµ‹è¯•éœ€è¦é…ç½®SecretIdå’ŒSecretKeyåˆ°ç”¨æˆ·å˜é‡ï¼Œæˆ–è€…è‡ªè¡Œåœ¨ä»£ç ä¸­é…ç½®
 
-APIÃÜÔ¿¹ÜÀí£ºhttps://console.cloud.tencent.com/cam/capi
+APIå¯†é’¥ç®¡ç†ï¼šhttps://console.cloud.tencent.com/cam/capi
 
-ÔÆ½âÎöÎÄµµ£ºhttps://cloud.tencent.com/document/product/302/4032
+äº‘è§£ææ–‡æ¡£ï¼šhttps://cloud.tencent.com/document/product/302/4032
 
 
-## 2.°²×°
+## 2.å®‰è£…
 
-ÌÚÑ¶ÔÆ£º
+è…¾è®¯äº‘ï¼š
 
 ````shell
 Install-Package DynamicDns.TencentCloud
@@ -27,19 +27,19 @@ Install-Package DynamicDns.TencentCloud
 
 ````csharp
 
-//²»Í¬³§ÉÌ²»Í¬ÊµÏÖ£¬ÒÔÌÚÑ¶ÔÆÎªÀı
+//ä¸åŒå‚å•†ä¸åŒå®ç°ï¼Œä»¥è…¾è®¯äº‘ä¸ºä¾‹
 IDynamicDns ddns = new TencentCloudDynamicDns(new TencentCloudOptions()
 
-//Ìí¼Ó¼ÍÂ¼
+//æ·»åŠ è®°å½•
 ddns.AddAsync
 
-//Ìí¼Ó»òÉ¾³ı¼ÍÂ¼
+//æ·»åŠ æˆ–åˆ é™¤è®°å½•
 ddns.AddOrUpdateAsync
 
-//É¾³ı¼ÍÂ¼
+//åˆ é™¤è®°å½•
 ddns.DeleteAsync
 
 ````
 
-ÆäËû¼ûµ¥Ôª²âÊÔ
+å…¶ä»–è§å•å…ƒæµ‹è¯•
 
